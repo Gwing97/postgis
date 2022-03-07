@@ -116,7 +116,7 @@ rt_raster_same_alignment(
 	RASTER_DEBUGF(4, "rast2(xw, yw) = (%f, %f)", xw, yw);
 
 	/* spatial coordinates are identical to that of first raster's upper-left corner */
-	if (FLT_EQ(xw, rast1->ipX) && FLT_EQ(yw, rast1->ipY)) {
+	if (FLT_EQ_LOOSER(xw, rast1->ipX) && FLT_EQ_LOOSER(yw, rast1->ipY)) {
 		if (reason != NULL) *reason = "The rasters are aligned";
 		*aligned = 1;
 		return ES_NONE;
