@@ -2376,10 +2376,8 @@ rt_util_hsv_to_rgb(
 	helper macros for consistent floating point equality checks.
 	NaN equals NaN for NODATA support.
 */
-#define FLT_NEQ_LOOSER(x, y) ((x != y) && !(isnan(x) && isnan(y)) && (fabs(x - y) > FLT_EPSILON * 285))
-#define FLT_EQ_LOOSER(x, y) ((x == y) || (isnan(x) && isnan(y)) || (fabs(x - y) <= FLT_EPSILON * 285))
-#define FLT_NEQ(x, y) ((x != y) && !(isnan(x) && isnan(y)) && (fabs(x - y) > FLT_EPSILON))
-#define FLT_EQ(x, y) ((x == y) || (isnan(x) && isnan(y)) || (fabs(x - y) <= FLT_EPSILON))
+#define FLT_NEQ(x, y) ((x != y) && !(isnan(x) && isnan(y)) && (fabs(x - y) > (FLT_EPSILON * 285.0)))
+#define FLT_EQ(x, y) ((x == y) || (isnan(x) && isnan(y)) || (fabs(x - y) <= (FLT_EPSILON * 285.0)))
 #define DBL_NEQ(x, y) ((x != y) && !(isnan(x) && isnan(y)) && (fabs(x - y) > DBL_EPSILON))
 #define DBL_EQ(x, y) ((x == y) || (isnan(x) && isnan(y)) || (fabs(x - y) <= DBL_EPSILON))
 
